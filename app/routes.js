@@ -27,5 +27,9 @@ router.get('/quiz/:id',(req,res,next)=>{
  controller(req, res, next,req.params.id);
 });
 
-
+router.post('/response', (req, res, next) => {
+ /*Insert response*/
+ let controller = require('./controllers/response');
+ controller(req, res, next);
+});
 module.exports = router;
