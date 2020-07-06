@@ -5,7 +5,6 @@ function verifyUser(req,res,callback) {
     if (!token)
         return res.status(400).send('Bad Request')
     const verifiedToken = jwt.verify(token, 'this is secret')
-    console.log(JSON.stringify(verifiedToken)+'=========')
 }
 
 module.exports = {

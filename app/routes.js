@@ -2,12 +2,10 @@ const express = require('express');
 var router = express.Router();
 const auth = require('../modules/auth');
 const jwt = require('jsonwebtoken');
-const { response } = require('express');
 
 
 router.post('/', (req, res) => {
     const apiToken = jwt.sign({ '_id': 'apiToken' }, 'this is secret')
-    console.log(apiToken + '"""""""""""""""""')
     res.header('APIauth-token', apiToken).send(apiToken)
 })
 
