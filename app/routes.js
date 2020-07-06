@@ -16,13 +16,15 @@ router.post('/createQuiz',(req,res,next)=>{
 });
 
 router.post('/newQues',(req,res,next)=>{
+/*New questions for quiz wil be inserted*/
  let controller = require('./controllers/newQues');
  controller(req, res, next);
-/*New questions for quiz wil be inserted*/
 });
 
 router.get('/quiz/:id',(req,res,next)=>{
 /*Fetching the quiz questions*/
+ let controller = require('./controllers/getQuiz');
+ controller(req, res, next,req.params.id);
 });
 
 
