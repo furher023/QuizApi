@@ -7,6 +7,12 @@ function createQuiz(req,res,next){
 
  var sql2 = "CREATE TABLE `res" + name + "`(`id`  INT AUTO_INCREMENT PRIMARY KEY,`username` VARCHAR(50)NOT NULL,`response` CHAR(1) NOT NULL,`result` CHAR(1) NOT NULL,`timetaken` INT NOT NULL);"
 
+ let quiz={
+  quizid: req.body.id,
+  quizname: req.body.name, 
+ }
+ var sql3 = "INSERT INTO `quizzes` SET ?"
+
  db.query(sql1,(err,result)=>{
  if(err) res.send('Quiz exists');
  console.log(result);
@@ -17,9 +23,12 @@ function createQuiz(req,res,next){
   if (err) console.log('Response table exists');
   console.log("Res table created");
  });
+ 
+ db.query(sql3,quiz,(err) => {
+  if (err) throw err;
+  console.log("Inserted");
+ });
 
 };
 
-module.exports={
- createQuiz : createQuiz
-};
+module.exports= createQuiz;

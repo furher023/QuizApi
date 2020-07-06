@@ -5,12 +5,14 @@ var router = express.Router();
 
 router.post('/register',(req,res,next)=>{
  /* user registeration for the quiz */
+ let controller = require('./controllers/register');
+ controller(req,res,next);
 });
 
 router.post('/createQuiz',(req,res,next)=>{
  /* New table for the quiz would be created here*/
  let controller = require('./controllers/createQuiz');
- controller.createQuiz(req,res,next);
+ controller(req,res,next);
 });
 
 router.post('/newques',(req,res,next)=>{
