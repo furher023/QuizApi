@@ -11,5 +11,5 @@ app.use('/',indexrouter);
 
 app.listen(PORT,(err)=>{
  if(err) throw err;
- console.log('Server  at port '+PORT);
+ console.log('Server at port '+PORT);
 });
