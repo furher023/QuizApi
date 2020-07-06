@@ -1,10 +1,11 @@
 const mysql = require('mysql')
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
-    database: 'quizdb'
+    password: '1234',
+    database: 'quizdb',
+    multipleStatements: true
 });
 
 connection.connect((err, result) => {
@@ -13,4 +14,6 @@ connection.connect((err, result) => {
         return;
     }
     console.log('connected as id ' + connection.threadId);
-})
+});
+
+module.exports = connection;
